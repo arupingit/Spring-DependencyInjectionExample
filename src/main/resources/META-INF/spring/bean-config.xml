@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="student" class="net.arup.spring.dependencyInjection.Student">
+		<constructor-arg ref="pencils" />
+		<property name="shapes" ref="square" />		
+	</bean>
+	
+	<bean id="circle" class="net.arup.spring.dependencyInjection.Circle" />
+	<bean id="square" class="net.arup.spring.dependencyInjection.Square" />
+	<bean id="pencils" class="net.arup.spring.dependencyInjection.Pencils"
+		init-method="getIntruments" destroy-method="putInstrumentsBack" />
+</beans>
